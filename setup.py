@@ -18,5 +18,6 @@ setup(
     author='Gilbert Montague',
     author_email='gilbert.i.montague@gmail.com',
     url='https://github.com/nerdgilbert/clidye',
-    packages=find_packages(exclude=['docs', 'tests'])
+    packages=find_packages(exclude=['docs', 'tests']),
+    scripts=[path.join('bin', 'clidye')]
 )
