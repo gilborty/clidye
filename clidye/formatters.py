@@ -20,7 +20,8 @@ WARNING = CC_WARNING + CC_BOLD + "WARNING" + CC_ENDC
 FATAL_ERROR = CC_FAIL + CC_BOLD + "FATAL" + CC_ENDC
 
 # MAX Rotating Log File Size
-MAX_LOG_FILE_SIZE_MB = 2
+MAX_LOG_FILE_SIZE_BYTES = 2000
+DEFAULT_BACKUP_COUNT = 5
 
 # LOG FMTs
 LOG_FMT_CSV = '%(asctime)s.%(msecs)d,%(name)s,%(levelname)s,"%(message)s"'

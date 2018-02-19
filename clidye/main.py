@@ -23,7 +23,7 @@ def run():
 
     logger = clidye.Clidye(args.name, 
                             verbose=True, 
-                            enable_logging=False)
+                            enable_logging=True)
     logger.info(args.message)
     logger.debug(args.message)
     logger.warning(args.message)

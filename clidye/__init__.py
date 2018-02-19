@@ -61,7 +61,11 @@ class Clidye(object):
         
         self.max_log_file_size = kwargs.get('max_file_size')
         if self.max_log_file_size is None:
-            self.max_log_file_size = formatters.MAX_LOG_FILE_SIZE_MB
+            self.max_log_file_size = formatters.MAX_LOG_FILE_SIZE_BYTES
+        
+        self.backup_count = kwargs.get('backup_count')
+        if self.backup_count is None:
+            self.backup_count = formatters.DEFAULT_BACKUP_COUNT
         
         if self.enable_logging:
             self.init_logging()
@@ -71,7 +75,7 @@ class Clidye(object):
         
     def init_logging(self):
         self.logger = logging.getLogger(self.name)
-        self.logging_handler = RotatingFileHandler(self.logging_file, maxBytes=self.max_log_file_size*1024*1024)
+        self.logging_handler = RotatingFileHandler(self.logging_file, maxBytes=self.max_log_file_size, backupCount=self.backup_count)
         self.logging_formatter = logging.Formatter(self.log_fmt)
         self.logging_handler.setFormatter(self.logging_formatter)
         self.logger.addHandler(self.logging_handler)
